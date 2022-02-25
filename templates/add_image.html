@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{nam}}{% endblock %}
+
+{% block body %}
+
+<br><br>
+  
+
+<div class="container">
+
+    <div class="py-3  bg-secondary text-white">
+        
+        <h1 class="mb-3 text-center text-info" ><b>BIRTHDAY BOY IMAGES</b></h1>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-warning me-md-2" type="button"><a href="{% url 'logout' %}">Logout</a></button>
+            <button class="btn btn-info" type="button"><a href="{% url 'celebration' %}"><b>SURPRISE</a></b></button>
+          </div>
+    <form align = "center" action="" method="POST" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {% for fm in form %}
+            {{fm}}
+        {% endfor %}
+        <input type="submit" class = "btn btn-danger" value="UPLOAD">
+    </form>
+    
+</div>
+
+</div>
+
+<div class="container">
+<hr>
+<div class="text-center alert alert-success"><h2><b>MEMORIES</b></h2></div>
+<hr>
+<div class="owl-carousel owl-theme">
+  {% for fm in image %}
+  <div align = "center" class="item"><img src="{{fm.im.url}}" width="200px" height="200px"> </div>
+  
+  {% endfor %}
+  
+  
+</div>
+<br>
+<hr>
+</div>
+
+
+{% endblock %}
