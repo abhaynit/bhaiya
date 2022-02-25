@@ -6,6 +6,25 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
 
+
+def home(request):
+    return render(request,'home.html')
+
+def add_image(request):
+    if request.method=='POST':
+        ab = addim(request.POST,request.FILES)
+        if ab.is_valid():
+            ad = ab.cleaned_data['im']
+            bc = addimg(im=ad)
+            bc.save()
+            return HttpResponseRedirect('/')
+    else:
+        ab = addim()
+        abc = addimg.objects.all()
+        return render(request,'add_image.html',{'nam':'ADD IMAGE','form':ab,'image':abc})
+
+
+"""
 # Create your views here.
 def home(request):
     if request.user.is_authenticated:
@@ -59,4 +78,4 @@ def user_logout(request):
     else:
         messages.success(request,'First login the page !!')
         return HttpResponseRedirect('/login/')
-
+"""
