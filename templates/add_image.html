@@ -13,7 +13,7 @@
         
         <h1 class="mb-3 text-center text-info" ><b>BIRTHDAY BOY IMAGES</b></h1>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-info" type="button"><a href="{% url 'celebration' %}"><b>SURPRISE</a></b></button>
+            <button class="btn btn-info" type="button"><a href="{% url 'celebration' %}"><b>CLICK HERE</b></a></button>
           </div>
     <form align = "center" action="" method="POST" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
@@ -42,6 +42,19 @@
 <br>
 <hr>
 </div>
+
+<div class="container">
+    <div class="row">               
+        {% for it in image  %}
+        <div class="col-sm-3 mt-4 ">
+            <div class="card br-warning" style="width: 16.6rem;">
+                <img src="{{it.im.url}}" class="card-img-top abd" >
+            </div>
+        </div> 
+        {% endfor %}
+    </div>
+</div>
+<br><br>
 
 
 {% endblock %}

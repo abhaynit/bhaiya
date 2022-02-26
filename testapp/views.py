@@ -22,6 +22,9 @@ def add_image(request):
         ab = addim()
         abc = addimg.objects.all()
         return render(request,'add_image.html',{'nam':'ADD IMAGE','form':ab,'image':abc})
+    
+def detail(request,id):
+    print(id)
 
 
 """
