@@ -13,11 +13,13 @@
         
         <h1 class="mb-3 text-center text-info" ><b>BIRTHDAY BOY IMAGES</b></h1>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-warning" type="button"><a href="{% url 'private' %}"><b>PRIVATE IMAGE</b></a></button>
             <button class="btn btn-info" type="button"><a href="{% url 'celebration' %}"><b>CLICK HERE</b></a></button>
           </div>
     <form align = "center" action="" method="POST" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
         {% for fm in form %}
+            {{fm.label_tag}}
             {{fm}}
         {% endfor %}
         <input type="submit" class = "btn btn-danger" value="UPLOAD">
