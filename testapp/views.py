@@ -21,7 +21,7 @@ def add_image(request):
             return HttpResponseRedirect('/')
     else:
         ab = addim()
-        abc = addimg1.objects.all().filter(is_pri = False)
+        abc = addimg1.objects.all().filter(is_pri = False).order_by('-id')
         return render(request,'add_image.html',{'nam':'ADD IMAGE','form':ab,'image':abc})
     
 def private_image(request):
