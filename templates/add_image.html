@@ -33,7 +33,7 @@
 <hr>
 <div class="owl-carousel owl-theme">
   {% for fm in image %}
-  <div align = "center" class="item"><img src="{{fm.im.url}}" width="200px" height="200px"> </div>
+  <div class="item text-center"><img src="{{fm.im.url}}" class="img-thumbnail rounded" width="200px" height="200px"> </div>
   
   {% endfor %}
   
@@ -46,9 +46,9 @@
 <div class="container">
     <div class="row">               
         {% for it in image  %}
-        <div class="col-sm-3 mt-4 ">
-            <div class="card br-warning" style="width: 16.6rem;">
-                <img src="{{it.im.url}}" class="card-img-top abd" >
+        <div class="col-sm-3 mt-4 text-center">
+            <div class="card br-warning text-center" style="width: 16.6rem;">
+                <img src="{{it.im.url}}" class="card-img-top img-thumbnail rounded center" >
             </div>
         </div> 
         {% endfor %}
