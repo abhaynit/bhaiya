@@ -7,6 +7,33 @@
 {% endblock %}
 {% block body %}
 
+<pre>
+
+    <h2>program in lex </h2>
+    %{#include<stdio.h>
+        int chars = 0;
+        int word = 0;
+        int space = 0;
+        int line = 0;
+        %}
+        
+        %%
+        [^ \n\t]+		{word++, chars+=yyleng;}
+        \n			{line++;}
+        \t			{space++;}
+        " "			{space++;}
+        %%
+        
+        void main()
+        {
+            yyin=fopen("data.txt","r");
+            yylex();
+            printf("Statistics\n");
+            printf("Char: %d\nWord: %d\nSpace: %d\nLine: %d\n", chars, word, space, line);
+        }
+
+</pre>
+
     <h3 align = 'center'>HAPPY BIRTHDAY <br> <i>BHAIYA</i>  </h3>
     <canvas id="birthday"></canvas>
     <script src = "{% static 'main.js' %}" ></script>
